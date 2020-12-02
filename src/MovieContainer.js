@@ -1,6 +1,6 @@
 import React from 'react'
 import MovieCard from './MovieCard'
-import './MovieContainer.css'
+import './MovieContainer.scss'
 
 const MovieContainer = (props) => {
   const movieInformation = props.movies.map(movie => {
