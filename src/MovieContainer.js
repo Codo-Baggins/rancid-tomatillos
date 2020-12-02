@@ -11,6 +11,7 @@ const MovieContainer = (props) => {
         key={movie.id}
         title={movie.title}
         released={movie.release_date}
+        handleClick={props.handleClick}
       />
     )
   })

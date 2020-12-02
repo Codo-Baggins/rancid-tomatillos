@@ -11,15 +11,22 @@ class App extends Component {
       movies: movieData.movies
     }
   }
+
+  handleClick= (event) => {
+    console.log(event.target)
+  }
+
   render() {
     return (
       <div className="App">
         <Nav />
-        <MovieContainer movies={this.state.movies}/>
+        <MovieContainer
+          movies={this.state.movies}
+          handleClick={this.handleClick}
+        />
       </div>
     );
   }
-
 }
 
 export default App;
