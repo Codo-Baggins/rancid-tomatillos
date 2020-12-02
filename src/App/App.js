@@ -8,22 +8,23 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      movies: movieData.movies
+      movies: movieData.movies,
+      movieSelected: {} 
     }
   }
 
-  handleClick= (event) => {
-    console.log(event.target)
+  handleClick = (index) => {
+    this.setState({ movieSelected: this.state.movies[index] })
   }
 
   render() {
     return (
       <div className="App">
         <Nav />
-        <MovieContainer
+        { Object.keys(this.state.movieSelected).length ? <h2>Movie Title</h2> : <MovieContainer
           movies={this.state.movies}
           handleClick={this.handleClick}
-        />
+        /> } 
       </div>
     );
   }
