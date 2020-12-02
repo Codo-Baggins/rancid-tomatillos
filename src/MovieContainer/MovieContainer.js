@@ -1,5 +1,5 @@
 import React from 'react'
-import MovieCard from './MovieCard'
+import MovieCard from '../MovieCard/MovieCard'
 import './MovieContainer.scss'
 
 const MovieContainer = (props) => {

@@ -1,8 +1,8 @@
 import './App.scss';
-import Nav from './Nav'
+import Nav from '../Nav/Nav'
 import React, { Component } from 'react';
-import movieData from './movieData'
-import MovieContainer from './MovieContainer'
+import movieData from '../movieData'
+import MovieContainer from '../MovieContainer/MovieContainer'
 
 class App extends Component {
   constructor() {
