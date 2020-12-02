@@ -1,0 +1,15 @@
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  max-width: 150px;
+  margin: 10px;
+}
+
+p {
+  margin: 0;
+}
+
+.movie-img {
+  max-height: 250px
+}
