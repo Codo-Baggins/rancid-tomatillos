@@ -1,8 +1,9 @@
 import './App.scss';
-import Nav from '../Nav/Nav'
+import Nav from '../Nav/Nav';
 import React, { Component } from 'react';
-import movieData from '../movieData'
-import MovieContainer from '../MovieContainer/MovieContainer'
+import movieData from '../movieData';
+import MovieContainer from '../MovieContainer/MovieContainer';
+import Movie from '../Movie/Movie';
 
 class App extends Component {
   constructor() {
@@ -21,7 +22,7 @@ class App extends Component {
     return (
       <div className="App">
         <Nav />
-        { Object.keys(this.state.movieSelected).length ? <h2>Movie Title</h2> : <MovieContainer
+        { Object.keys(this.state.movieSelected).length ? <Movie movieSelected={ this.state.movieSelected } /> : <MovieContainer
           movies={this.state.movies}
           handleClick={this.handleClick}
         /> } 
