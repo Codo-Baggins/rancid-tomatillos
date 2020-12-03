@@ -1,9 +1,20 @@
 .page-nav {
   background-color: rgb(15, 49, 60);
   color: white;
-  height: 10vh;
+  height: 15vh;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 40px;
+}
+
+.home-button {
+  width: 80px;
+  height: 80px;
+  // background-image: url('../logo.svg');
+}
+
+.home-button:active {
+  transform: translate(2px, 2px)
+  
 }
