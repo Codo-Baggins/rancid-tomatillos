@@ -18,10 +18,14 @@ class App extends Component {
     this.setState({ movieSelected: this.state.movies[index] })
   }
 
+  handleSubmit = () => {
+    this.setState( { movies: movieData.movies, movieSelected: {} })
+  }
+
   render() {
     return (
       <div className="App">
-        <Nav />
+        <Nav handleSubmit={ this.handleSubmit }/>
         { Object.keys(this.state.movieSelected).length ? <Movie movieSelected={ this.state.movieSelected } /> : <MovieContainer
           movies={this.state.movies}
           handleClick={this.handleClick}
