@@ -5,7 +5,7 @@ import './MovieCard.scss'
 const MovieCard = (props) => {
   const { imgUrl, id, title, released, handleClick, movieIndex } = props;
 
-
+//pass id instead of movieIndex
   return (
     <section className="movie-card" id={id} onClick={(event) => handleClick(movieIndex)}>
       <img className="movie-img" src={imgUrl} alt={title} />
