@@ -17,8 +17,8 @@ describe('Movie', () => {
     />)
 
     expect(screen.getByText('Money Plane')).toBeInTheDocument()
-    //expect(screen.getByText('2020-09-29')).toBeInTheDocument()
+
     expect(screen.getByText(6.666666666666667)).toBeInTheDocument()
-    expect(screen.getByText("Some Details")).toBeInTheDocument()
+
   })
 })
