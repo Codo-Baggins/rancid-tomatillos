@@ -37,12 +37,12 @@ describe('MovieCard', () => {
 
       //click on outer area too
     fireEvent.click(screen.getByText('Cheech and Chong'))
-    expect(mockHandleClick).toHaveBeenCalledWith(0)
+    expect(mockHandleClick).toHaveBeenCalledWith(123456)
 
     fireEvent.click(screen.getByAltText('Cheech and Chong'))
-    expect(mockHandleClick).toHaveBeenCalledWith(0)
+    expect(mockHandleClick).toHaveBeenCalledWith(123456)
 
     fireEvent.click(screen.getByText('2020-09-29'))
-    expect(mockHandleClick).toHaveBeenCalledWith(0)
+    expect(mockHandleClick).toHaveBeenCalledWith(123456)
   })
 })
