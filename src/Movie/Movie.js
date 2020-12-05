@@ -12,7 +12,7 @@ const Movie = (props) => {
             { props.movieSelected.average_rating }
           </article>
           <article className="movie-details">
-            Some Details
+            { props.movieSelected.overview}
           </article>
         </section>
       </section>
