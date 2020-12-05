@@ -10,7 +10,7 @@ function Nav(props) {
         title="Home Button"
         src={ tomatillo }
         className="home-button"
-        onClick={ props.handleSubmit }
+        onClick={ props.returnHome }
         alt="Home Button"
       />
     </nav>

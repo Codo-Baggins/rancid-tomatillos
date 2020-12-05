@@ -18,7 +18,7 @@ describe('Nav', () => {
     const mockHandleSubmit = jest.fn()
     render(
       <Nav
-        handleSubmit={mockHandleSubmit}
+        returnHome={mockHandleSubmit}
     />)
 
       //how to test for image clicked?
