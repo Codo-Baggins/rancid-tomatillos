@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 //import movieData from '../movieData';
 import MovieContainer from '../MovieContainer/MovieContainer';
 import Movie from '../Movie/Movie';
-import { callApi, callSingleApi } from '../callApis/callApis'
+import { callApi, callSingleApi } from '../callApis'
 
 class App extends Component {
   constructor() {
