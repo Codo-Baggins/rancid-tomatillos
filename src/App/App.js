@@ -1,35 +1,47 @@
 import './App.scss';
 import Nav from '../Nav/Nav';
 import React, { Component } from 'react';
-import movieData from '../movieData';
+//import movieData from '../movieData';
 import MovieContainer from '../MovieContainer/MovieContainer';
 import Movie from '../Movie/Movie';
+import { callApi, callSingleApi } from '../callApis'
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      movies: movieData.movies,
-      movieSelected: {} 
+      movies: [],
+      movieSelected: {},
+      error: null
     }
   }
-
-  handleClick = (index) => {
-    this.setState({ movieSelected: this.state.movies[index] })
+  //integration test, tests the methods
+  handleClick = (id) => {
+    //fetch her for single movie
+    // .then(data => this.setState({movieSelected: data}))
+    callSingleApi(id)
+      .then(data => this.setState({ movieSelected: data.movie }))
+      .catch(error => this.setState({ error }))
   }
 
-  handleSubmit = () => {
-    this.setState( { movies: movieData.movies, movieSelected: {} })
+  returnHome = () => {
+    this.setState({ movieSelected: {} })
+  }
+
+  componentDidMount() {
+    callApi()
+      .then(data => this.setState({ movies: data.movies }))
+      .catch(error => this.setState({ error }))
   }
 
   render() {
     return (
       <div className="App">
-        <Nav handleSubmit={ this.handleSubmit }/>
+        <Nav returnHome={ this.returnHome } />
         { Object.keys(this.state.movieSelected).length ? <Movie movieSelected={ this.state.movieSelected } /> : <MovieContainer
-          movies={this.state.movies}
-          handleClick={this.handleClick}
-        /> } 
+          movies={ this.state.movies }
+          handleClick={ this.handleClick }
+        /> }
       </div>
     );
   }
