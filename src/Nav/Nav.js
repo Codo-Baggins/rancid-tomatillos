@@ -4,9 +4,10 @@ import tomatillo from '../assets/tomatillo.png'
 import Form from '../Form/Form'
 
 function Nav(props) {
+  //console.log(props);
   return (
     <nav className="page-nav">
-      <Form onChange={ props.filterMoviesByTitle }/>
+      <Form filterMovies={ props.filterMovies }/>
       Rancid Tomatillos
       <img
         title="Home Button"
