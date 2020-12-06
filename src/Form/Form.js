@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 class Form extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       searchValue:""
     }
@@ -10,16 +10,26 @@ class Form extends Component {
   }
 
  handleSearchMovies = (event) => {
+   console.log(event)
     const { name, value } = event.target;
     this.setState({ [name]: value })
  }
-  
-  render() {
-    return (
+
+//  handleOnChange = (props, event) => {
+//   this.handleSearchMovies(event)
+// }
+
+render() {
+  return (
     <form>
       <input placeholder='Search For A Movie Title Or Genre' 
       type="text" 
-      onChange={ this.handleSearchMovies }
+      onChange={ (event, props) => {
+        this.handleSearchMovies(event)
+        console.log(this.state.searchValue)
+        this.props.filterMoviesByTitle(this.state.searchValue)
+       }
+      }
       name="searchValue"
       value={ this.state.searchValue }
       />

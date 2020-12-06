@@ -6,12 +6,14 @@ import MovieContainer from '../MovieContainer/MovieContainer';
 import Movie from '../Movie/Movie';
 import { callApi, callSingleApi } from '../callApis'
 
+
 class App extends Component {
   constructor() {
     super()
     this.state = {
       movies: [],
       movieSelected: {},
+      filteredMovies: [],
       error: null
     }
   }
@@ -34,14 +36,29 @@ class App extends Component {
       .catch(error => this.setState({ error }))
   }
 
+  filterMoviesByTitle = (results) => {
+
+    let filteredMovies = this.state.movies.filter(movie => {
+      return movie.title.toLowerCase().includes(results.toLowerCase)
+    })
+    this.setState( { filteredMovies })
+  }
+
   render() {
     return (
       <div className="App">
         <Nav returnHome={ this.returnHome } />
-        { Object.keys(this.state.movieSelected).length ? <Movie movieSelected={ this.state.movieSelected } /> : <MovieContainer
+        { Object.keys(this.state.movieSelected).length ? 
+        <Movie movieSelected={ this.state.movieSelected } /> : 
+        <MovieContainer
           movies={ this.state.movies }
           handleClick={ this.handleClick }
         /> }
+        { this.state.filteredMovies.length ? <MovieContainer movies={ this.state.filteredMovies} handleClick={ this.handleClick }
+        /> : <MovieContainer
+        movies={ this.state.movies }
+        handleClick={ this.handleClick }
+      /> }
       </div>
     );
   }
