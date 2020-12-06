@@ -17,17 +17,18 @@ class App extends Component {
       error: null
     }
   }
-  //integration test, tests the methods
+
   handleClick = (id) => {
-    //fetch her for single movie
-    // .then(data => this.setState({movieSelected: data}))
     callSingleApi(id)
-      .then(data => this.setState({ movieSelected: data.movie }))
-      .catch(error => this.setState({ error }))
+    .then(data => this.setState({ movieSelected: data.movie }))
+    .catch(error => this.setState({ error }))
   }
 
   returnHome = () => {
-    this.setState({ movieSelected: {} })
+    this.setState({
+      movieSelected: {},
+      filteredMovies: []
+    })
   }
 
   componentDidMount() {
@@ -37,28 +38,36 @@ class App extends Component {
   }
 
   filterMoviesByTitle = (results) => {
-
-    let filteredMovies = this.state.movies.filter(movie => {
-      return movie.title.toLowerCase().includes(results.toLowerCase)
+    const filteredMovies = this.state.movies.filter(movie => {
+      return movie.title.toLowerCase().includes(results.toLowerCase())
     })
-    this.setState( { filteredMovies })
+    this.setState({ filteredMovies });
+  }
+
+  generateView() {
+    if (this.state.filteredMovies.length && !Object.keys(this.state.movieSelected).length) {
+      return <MovieContainer
+        movies={ this.state.filteredMovies }
+        handleClick={ this.handleClick }
+      />
+    } else if (Object.keys(this.state.movieSelected).length) {
+      return <Movie movieSelected={ this.state.movieSelected } />
+    }
+    return <MovieContainer
+      movies={ this.state.movies }
+      handleClick={ this.handleClick }
+    />
   }
 
   render() {
+    //do calc on what we want to render
     return (
       <div className="App">
-        <Nav returnHome={ this.returnHome } />
-        { Object.keys(this.state.movieSelected).length ? 
-        <Movie movieSelected={ this.state.movieSelected } /> : 
-        <MovieContainer
-          movies={ this.state.movies }
-          handleClick={ this.handleClick }
-        /> }
-        { this.state.filteredMovies.length ? <MovieContainer movies={ this.state.filteredMovies} handleClick={ this.handleClick }
-        /> : <MovieContainer
-        movies={ this.state.movies }
-        handleClick={ this.handleClick }
-      /> }
+        <Nav
+          returnHome={ this.returnHome }
+          filterMovies={ this.filterMoviesByTitle }
+        />
+        {this.generateView()}
       </div>
     );
   }
