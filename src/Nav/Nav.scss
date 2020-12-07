@@ -1,3 +1,7 @@
+@font-face {
+  font-family: 'Nightmare-Pills';
+  src: url('../assets/NightmarePills-BV2w.ttf') format(('truetype'))
+}
 .page-nav {
   position: relative;
   background-color: rgb(15, 49, 60);
@@ -12,10 +16,13 @@
 .home-button {
   position: absolute;
   // top: 50%;
-  right: 35%;
+  right: 27%;
   width: 80px;
   height: 80px;
   // background-image: url('../logo.svg');
+}
+.home-button:hover {
+  cursor: pointer
 }
 
 .home-button:active {
@@ -25,5 +32,7 @@
 
 #title {
   position: absolute;
-  right: 40%
+  right: 35%;
+  font-family: Nightmare-Pills;
+  font-size: 135%
 }

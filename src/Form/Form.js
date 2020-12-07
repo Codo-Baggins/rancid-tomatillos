@@ -28,14 +28,14 @@ class Form extends Component {
       >
         <input
           className="form__field"
-          placeholder='Search For A Movie Title Or Genre'
+          placeholder='Search For A Movie Title'
           type="text"
           onChange={ this.handleSearchMovies }
           name="searchValue"
           value={ this.state.searchValue }
         />
         <label className="form__label" htmlFor="searchValue">
-          Search For A Movie Title Or Genre
+          Search For A Movie Title
         </label>
       </form>
     )
