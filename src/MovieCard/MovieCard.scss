@@ -1,9 +1,18 @@
+$borderColor: linear-gradient(to right, rgb(8, 98, 184), rgb(7, 207, 214), rgb(17, 190, 75), rgba(0, 128, 0, 0.945)) 1;
+
 .movie-card {
   display: flex;
   flex-direction: column;
   max-height: 100%;
   max-width: 150px;
   margin: 10px;
+}
+
+.movie-card:hover {
+  cursor: pointer;
+  border-width: 2px;
+  border-style: solid;
+  border-image: $borderColor
 }
 
 p {
