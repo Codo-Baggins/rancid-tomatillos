@@ -1,14 +1,18 @@
 .page-nav {
+  position: relative;
   background-color: rgb(15, 49, 60);
   color: white;
   height: 15vh;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   font-size: 40px;
 }
 
 .home-button {
+  position: absolute;
+  // top: 50%;
+  right: 35%;
   width: 80px;
   height: 80px;
   // background-image: url('../logo.svg');
@@ -17,4 +21,9 @@
 .home-button:active {
   transform: translate(2px, 2px)
   
+}
+
+#title {
+  position: absolute;
+  right: 40%
 }

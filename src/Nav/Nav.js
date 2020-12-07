@@ -8,7 +8,7 @@ function Nav(props) {
   return (
     <nav className="page-nav">
       <Form filterMovies={ props.filterMovies }/>
-      Rancid Tomatillos
+        <p id="title">Rancid Tomatillos</p>
       <img
         title="Home Button"
         src={ tomatillo }
