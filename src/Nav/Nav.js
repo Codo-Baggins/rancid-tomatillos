@@ -1,11 +1,14 @@
 import React from "react"
 import './Nav.scss'
 import tomatillo from '../assets/tomatillo.png'
+import Form from '../Form/Form'
 
 function Nav(props) {
+  //console.log(props);
   return (
     <nav className="page-nav">
-      Rancid Tomatillos
+      <Form filterMovies={ props.filterMovies }/>
+        <p id="title">Rancid Tomatillos</p>
       <img
         title="Home Button"
         src={ tomatillo }
