@@ -15,19 +15,19 @@
 
 .home-button {
   position: absolute;
-  // top: 50%;
-  right: 27%;
+  top: 15%;
+  right: 30%;
   width: 80px;
   height: 80px;
-  // background-image: url('../logo.svg');
 }
+
 .home-button:hover {
   cursor: pointer
 }
 
 .home-button:active {
   transform: translate(2px, 2px)
-  
+
 }
 
 #title {
