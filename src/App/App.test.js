@@ -1,5 +1,6 @@
 import React from 'react'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
 import App from './App.js'
 import { callApi, callSingleApi } from '../callApis';
@@ -82,8 +83,20 @@ jest.mock('../callApis.js');
       fireEvent.click(screen.getByRole('img', { name: /home button/i }))
       expect(screen.getByText('Mulan')).toBeInTheDocument()
     })
-  });
 
+    it('should be able to filter movies by typing characters in the input field in the top nav bar', async () => {
+      render(<App/>)
+      const moneyPlane = await waitFor(() => screen.getByRole('img', { name: /money plane/i }));
+      const mulan = await waitFor(() => screen.getByRole('img', { name: /money plane/i }))
+      const inputField = screen.getAllByPlaceholderText('Search For A Movie Title');
+
+
+      userEvent.type(inputField, 'mo')
+      // fireEvent.keyDown(inputField, {key: 'A', code: 'keyA'})
+      expect(moneyPlane).toBeInTheDocument()
+      expect(mulan).not.toBeInTheDocument()
+    })
+  });
 
   //do we need this Nav test? Testing this functionality in Nav componenet
   describe("Nav", () => {
