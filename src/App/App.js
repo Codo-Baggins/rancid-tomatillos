@@ -6,13 +6,11 @@ import Movie from '../Movie/Movie';
 import {
   callApi,
   callSingleApi,
-  //import get video api
   callSingleApiVideo
 } from '../callApis'
 import {
   BrowserRouter as Router,
   Route,
-  NavLink,
   Switch
 } from 'react-router-dom';
 
@@ -23,7 +21,6 @@ class App extends Component {
       movies: [],
       movieSelected: {},
       filteredMovies: [],
-      //add video to state to display on movie page
       movieSelectedVideo: '',
       error: null
     }
@@ -34,7 +31,6 @@ class App extends Component {
     this.getSingleApiVideo(id);
   }
 
-  //split methods to get api then add to handleClick
   getSingleApi = (id) => {
     callSingleApi(id)
       .then(data => this.setState({ movieSelected: data.movie }))
@@ -47,26 +43,28 @@ class App extends Component {
       .catch(error => this.setState({ error }))
   }
 
-  //return url of video trailer, filter to find trailer (multiple types)
-
   filterVideoTypes = (types) => {
     //non stop running, why?
     const displayVideo = types.find(video => video.type === "Trailer");
     return `https://www.youtube.com/watch?v=${ displayVideo.key }/videos`
   }
 
-  //can delete this w/ react router, state will overwrite itself with each click
   returnHome = () => {
     this.setState({
-      movieSelected: {},
-      filteredMovies: []
+      filteredMovies: this.state.movies
     })
+    //clear form
   }
 
   componentDidMount() {
     callApi()
-      .then(data => this.setState({ movies: data.movies }))
+      .then(data => this.setState({ filteredMovies: data.movies, movies: data.movies }))
       .catch(error => this.setState({ error }))
+
+    //in then, fetch single movie api
+    //combine into one object
+    //.then(fetch)
+    //massaging the data
   }
 
   filterMoviesByTitle = (results) => {
@@ -92,14 +90,9 @@ class App extends Component {
   }
 
   render() {
-    //how to incorporate form search into React Router?
-    //filter w/ each keystroke
-    //updating url with this?
     return (
       <Router>
         <div className="App">
-
-          {/* Route to home with the button */ }
           <Nav
             returnHome={ this.returnHome }
             filterMovies={ this.filterMoviesByTitle }
@@ -108,17 +101,13 @@ class App extends Component {
             <Route exact path='/'
               render={ () => {
                 return <MovieContainer
-                  movies={ this.state.movies }
+                  movies={ this.state.filteredMovies }
                   handleClick={ this.handleClick }
                 />
               } } />
 
             <Route path="/movie/:id"
               render={ ({ match }) => {
-                // logging 3 million times...
-                console.log(this.state.movieSelectedVideo);
-
-                this.handleClick(parseInt(match.params.id))
                 return <Movie
                   movieSelected={ this.state.movieSelected }
                   //need to pass down and add to Movie component
