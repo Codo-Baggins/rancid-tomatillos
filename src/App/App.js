@@ -5,6 +5,7 @@ import MovieContainer from "../MovieContainer/MovieContainer";
 import Movie from "../Movie/Movie";
 import { callApi, callSingleApi, callSingleApiVideo } from "../callApis";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import TopTen from "../TopTen/TopTen";
 
 class App extends Component {
   constructor() {
@@ -14,6 +15,7 @@ class App extends Component {
       movieSelected: {},
       filteredMovies: [],
       movieSelectedVideo: "",
+      topTen: [],
       error: null,
     };
   }
@@ -55,7 +57,11 @@ class App extends Component {
   componentDidMount() {
     callApi()
       .then((data) =>
-        this.setState({ filteredMovies: data.movies, movies: data.movies })
+        this.setState({
+          filteredMovies: data.movies,
+          movies: data.movies,
+          topTen: this.filterTopTenMovies(data.movies),
+        })
       )
       .catch((error) => this.setState({ error }));
 
@@ -72,27 +78,16 @@ class App extends Component {
     this.setState({ filteredMovies });
   };
 
-  generateView() {
-    if (
-      this.state.filteredMovies.length &&
-      !Object.keys(this.state.movieSelected).length
-    ) {
-      return (
-        <MovieContainer
-          movies={this.state.filteredMovies}
-          handleClick={this.handleClick}
-        />
-      );
-    } else if (Object.keys(this.state.movieSelected).length) {
-      return <Movie movieSelected={this.state.movieSelected} />;
-    }
-    return (
-      <MovieContainer
-        movies={this.state.movies}
-        handleClick={this.handleClick}
-      />
-    );
-  }
+  filterTopTenMovies = (movies) => {
+    const test = movies;
+    const sortedMovies = test.sort((a, b) => {
+      return b.average_rating - a.average_rating;
+    });
+    const topTen = sortedMovies.filter((movie) => {
+      return sortedMovies.indexOf(movie) < 10;
+    });
+    return topTen;
+  };
 
   render() {
     return (
@@ -108,10 +103,20 @@ class App extends Component {
               path="/"
               render={() => {
                 return (
-                  <MovieContainer
-                    movies={this.state.filteredMovies}
-                    handleClick={this.handleClick}
-                  />
+                  <div className="entire-movie-section">
+                    <section>
+                      <TopTen
+                        topTen={this.state.topTen}
+                        handleClick={this.handleClick}
+                      />
+                    </section>
+                    <section>
+                      <MovieContainer
+                        movies={this.state.filteredMovies}
+                        handleClick={this.handleClick}
+                      />
+                    </section>
+                  </div>
                 );
               }}
             />
