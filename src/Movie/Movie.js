@@ -11,22 +11,39 @@ const Movie = (props) => {
     overview,
     average_rating,
   } = props.movieSelected;
-  console.log(props);
+
   return (
+    //movie-page get's poster background
     <section className="movie-page">
-      <h1>{title}</h1>
-      <section className="movie-overview">
-        <img className="movie-image" src={poster_path} alt={title} />
-        <section className="movie-info">
-          <article className="movie-trailer">
-            <ReactPlayer url={props.movieTrailer} />
-          </article>
-          <article className="movie-details">
-            {average_rating}
-            {overview}
-          </article>
+      <img className="movie-background" src={ backdrop_path } alt={ title } />
+      <div className="card-styling">
+        <p>{ title }</p>
+        <section className="movie-overview">
+          <div className="movie-poster">
+            <img className="movie-image" src={ poster_path } alt={ title } />
+            <div className="rating">
+              <div className="rating-style">Rating</div>
+              { Number(average_rating).toFixed(1) }
+            </div>
+          </div>
+          <section className="movie-info">
+            {/* <article className="movie-details"> */}
+
+              { overview }
+{/*
+            </article> */}
+            <div className="movie-trailer">
+              <ReactPlayer
+                className="react-player"
+                url={ props.movieTrailer }
+                height='90%'
+                width='90%'
+              />
+            </div>
+          </section>
         </section>
-      </section>
+      </div>
+
     </section>
   );
 };
