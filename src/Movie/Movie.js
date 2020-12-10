@@ -13,11 +13,10 @@ const Movie = (props) => {
   } = props.movieSelected;
 
   return (
-    //movie-page get's poster background
     <section className="movie-page">
       <img className="movie-background" src={ backdrop_path } alt={ title } />
       <div className="card-styling">
-        <p>{ title }</p>
+        <p className="title">{ title }</p>
         <section className="movie-overview">
           <div className="movie-poster">
             <img className="movie-image" src={ poster_path } alt={ title } />
@@ -27,11 +26,7 @@ const Movie = (props) => {
             </div>
           </div>
           <section className="movie-info">
-            {/* <article className="movie-details"> */}
-
               { overview }
-{/*
-            </article> */}
             <div className="movie-trailer">
               <ReactPlayer
                 className="react-player"

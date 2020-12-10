@@ -1,7 +1,8 @@
+$font: Verdana, sans-serif;
+
 .card-styling {
   height: 50%;
   width: 50%;
-
 }
 
 .movie-page {
@@ -29,55 +30,61 @@
   opacity: 0.95;
   height: 90%;
   width: 60%;
-  border-radius: 5px;
+  border-radius: 10px;
   margin: 35px 0;
   box-shadow: 15px 10px 18px #888888;
   p {
-    font-family: Verdana, sans-serif;
+    font-family: $font;
     font-size: 34px;
     font-weight: bold;
     margin: 20px;
+    -webkit-animation: title 2s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    animation: title 2s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
   }
 }
 .movie-poster {
   display: flex;
   justify-content: space-evenly;
+  .movie-image {
+    width: 30rem;
+    height: 71vh;
+    margin-bottom: 30px;
+    box-shadow: 5px 10px 18px black;
+  }
+  .rating {
+    align-self: center;
+    padding-bottom: 30vh;
+    font-size: 32px;
+    font-weight: bold;
+    font-family: $font;
+    .rating-style {
+      margin-bottom: 20px;
+    }
+  }
 }
 
-.movie-image {
-  width: 30rem;
-  height: 71vh;
-  margin-bottom: 30px;
-}
 .movie-info {
-  font-family: Verdana, sans-serif;
+  font-family: $font;
   font-weight: bold;
-  margin: 0 20px;
+  margin: 20px;
 }
 
 .movie-trailer {
   position: relative;
   padding-top: 56.25%;
   margin-left: 70px;
-}
-
-.react-player {
-  position: absolute;
-  margin-top: 30px;
-  top: 0;
-  left: 0;
-}
-
-.rating {
-  align-self: center;
-  padding-bottom: 30vh;
-  font-size: 32px;
-  font-weight: bold;
-  font-family: Verdana, sans-serif;
-  .rating-style {
-    margin-bottom: 20px;
+  .react-player {
+    position: absolute;
+    margin-top: 30px;
+    top: 0;
+    left: 0;
+    box-shadow: 5px 10px 18px black;
   }
 }
+
+
+
+
 
 // .movie-details {
 //   width: 25rem;
@@ -111,5 +118,30 @@
             transform: scale(1.25) translateY(15px);
     -webkit-transform-origin: bottom;
             transform-origin: bottom;
+  }
+}
+
+@-webkit-keyframes title {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes title {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
   }
 }
