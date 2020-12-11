@@ -31,25 +31,21 @@ class App extends Component {
 
   getSingleApiVideo = (id) => {
     callSingleApiVideo(id)
-      .then((data) =>
-        this.setState({
-          movieSelectedVideo: this.filterVideoTypes(data.videos),
-        })
-      )
+      .then((data) => this.setState({ movieSelectedVideo: this.filterVideoTypes(data.videos) }))
       .catch((error) => this.setState({ error }));
   };
 
   filterVideoTypes = (types) => {
-    //non stop running, why?
     const displayVideo = types.find((video) => video.type === "Trailer");
-    return `https://www.youtube.com/watch?v=${displayVideo.key}/videos`;
+    return `https://www.youtube.com/watch?v=${ displayVideo.key }/videos`;
   };
 
   returnHome = () => {
     this.setState({
       filteredMovies: this.state.movies,
+      movieSelected: {},
+      movieSelectedVideo: ""
     });
-    //clear form
   };
 
   componentDidMount() {
@@ -58,11 +54,6 @@ class App extends Component {
         this.setState({ filteredMovies: data.movies, movies: data.movies })
       )
       .catch((error) => this.setState({ error }));
-
-    //in then, fetch single movie api
-    //combine into one object
-    //.then(fetch)
-    //massaging the data
   }
 
   filterMoviesByTitle = (results) => {
@@ -72,61 +63,38 @@ class App extends Component {
     this.setState({ filteredMovies });
   };
 
-  generateView() {
-    if (
-      this.state.filteredMovies.length &&
-      !Object.keys(this.state.movieSelected).length
-    ) {
-      return (
-        <MovieContainer
-          movies={this.state.filteredMovies}
-          handleClick={this.handleClick}
-        />
-      );
-    } else if (Object.keys(this.state.movieSelected).length) {
-      return <Movie movieSelected={this.state.movieSelected} />;
-    }
-    return (
-      <MovieContainer
-        movies={this.state.movies}
-        handleClick={this.handleClick}
-      />
-    );
-  }
-
   render() {
     return (
       <Router>
         <div className="App">
           <Nav
-            returnHome={this.returnHome}
-            filterMovies={this.filterMoviesByTitle}
+            returnHome={ this.returnHome }
+            filterMovies={ this.filterMoviesByTitle }
           />
           <Switch>
             <Route
               exact
               path="/"
-              render={() => {
+              render={ () => {
                 return (
                   <MovieContainer
-                    movies={this.state.filteredMovies}
-                    handleClick={this.handleClick}
+                    movies={ this.state.filteredMovies }
+                    handleClick={ this.handleClick }
                   />
                 );
-              }}
+              } }
             />
 
             <Route
               path="/movie/:id"
-              render={({ match }) => {
+              render={ ({ match }) => {
                 return (
                   <Movie
-                    movieSelected={this.state.movieSelected}
-                    //need to pass down and add to Movie component
-                    movieTrailer={this.state.movieSelectedVideo}
+                    movieSelected={ this.state.movieSelected }
+                    movieTrailer={ this.state.movieSelectedVideo }
                   />
                 );
-              }}
+              } }
             />
           </Switch>
         </div>
