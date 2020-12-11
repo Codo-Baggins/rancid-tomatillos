@@ -1,10 +1,5 @@
 $font: Verdana, sans-serif;
 
-.card-styling {
-  height: 50%;
-  width: 50%;
-}
-
 .movie-page {
   display: flex;
   flex-direction: column;
@@ -15,6 +10,11 @@ $font: Verdana, sans-serif;
   position: relative;
   overflow: hidden;
   height: 100%;
+}
+
+.card-styling {
+  height: 50%;
+  width: 50%;
 }
 
 .movie-background {
@@ -33,13 +33,14 @@ $font: Verdana, sans-serif;
   border-radius: 10px;
   margin: 35px 0;
   box-shadow: 15px 10px 18px #888888;
-  p {
+  .title {
     font-family: $font;
-    font-size: 34px;
+    text-shadow: 2px 2px rgb(207, 200, 200);
+    font-size: 48px;
     font-weight: bold;
-    margin: 20px;
-    -webkit-animation: title 2s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-    animation: title 2s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    margin: 30px;
+    -webkit-animation: title 2s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+    animation: title 2s cubic-bezier(0.215, 0.61, 0.355, 1) both;
   }
 }
 .movie-poster {
@@ -53,12 +54,21 @@ $font: Verdana, sans-serif;
   }
   .rating {
     align-self: center;
-    padding-bottom: 30vh;
-    font-size: 32px;
+    height: 50vh;
+    font-size: 38px;
     font-weight: bold;
     font-family: $font;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     .rating-style {
+      display: flex;
+      flex-direction: column;
       margin-bottom: 20px;
+      .thumb {
+        height: 50px;
+        width: 50px;
+      }
     }
   }
 }
@@ -67,57 +77,47 @@ $font: Verdana, sans-serif;
   font-family: $font;
   font-weight: bold;
   margin: 20px;
-}
-
-.movie-trailer {
-  position: relative;
-  padding-top: 56.25%;
-  margin-left: 70px;
-  .react-player {
-    position: absolute;
-    margin-top: 30px;
-    top: 0;
-    left: 0;
-    box-shadow: 5px 10px 18px black;
+  .movie-trailer {
+    position: relative;
+    padding-top: 56.25%;
+    margin-left: 70px;
+    .react-player {
+      position: absolute;
+      margin-top: 30px;
+      top: 0;
+      left: 0;
+      box-shadow: 5px 10px 18px black;
+    }
   }
 }
 
-
-
-
-
-// .movie-details {
-//   width: 25rem;
-//   height: 30vh;
-//   border: 2px solid black;
-// }
-
- @-webkit-keyframes movie-background {
+@-webkit-keyframes movie-background {
   0% {
     -webkit-transform: scale(1) translateY(0);
-            transform: scale(1) translateY(0);
+    transform: scale(1) translateY(0);
     -webkit-transform-origin: 50% 84%;
-            transform-origin: 50% 84%;
+    transform-origin: 50% 84%;
   }
   100% {
     -webkit-transform: scale(1.25) translateY(15px);
-            transform: scale(1.25) translateY(15px);
+    transform: scale(1.25) translateY(15px);
     -webkit-transform-origin: bottom;
-            transform-origin: bottom;
+    transform-origin: bottom;
   }
 }
+
 @keyframes movie-background {
   0% {
     -webkit-transform: scale(1) translateY(0);
-            transform: scale(1) translateY(0);
+    transform: scale(1) translateY(0);
     -webkit-transform-origin: 50% 84%;
-            transform-origin: 50% 84%;
+    transform-origin: 50% 84%;
   }
   100% {
     -webkit-transform: scale(1.25) translateY(15px);
-            transform: scale(1.25) translateY(15px);
+    transform: scale(1.25) translateY(15px);
     -webkit-transform-origin: bottom;
-            transform-origin: bottom;
+    transform-origin: bottom;
   }
 }
 
@@ -133,6 +133,7 @@ $font: Verdana, sans-serif;
     opacity: 1;
   }
 }
+
 @keyframes title {
   0% {
     letter-spacing: -0.5em;
