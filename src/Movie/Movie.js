@@ -1,16 +1,23 @@
 import React from "react";
 import "./Movie.scss";
 import ReactPlayer from "react-player";
+import thumbsUp from '../assets/001-thumbs-up-hand-symbol.png';
+import thumbsDown from '../assets/002-thumbs-down-silhouette.png'
 
 const Movie = (props) => {
   const {
     title,
     poster_path,
-    url,
     backdrop_path,
     overview,
     average_rating,
   } = props.movieSelected;
+
+  const avgRating = Number(average_rating).toFixed(1)
+  const thumbRating = avgRating >= 5.0 ?
+    <img className="thumb" src={thumbsUp} alt="thumb up" />
+    : <img className="thumb" src={thumbsDown} alt="thumb down" />
+  const loadRating = average_rating === undefined ? <h1>...loading</h1> : avgRating
 
   return (
     <section className="movie-page">
@@ -22,7 +29,8 @@ const Movie = (props) => {
             <img className="movie-image" src={ poster_path } alt={ title } />
             <div className="rating">
               <div className="rating-style">Rating</div>
-              { Number(average_rating).toFixed(1) }
+              { loadRating }
+              <div>{ thumbRating }</div>
             </div>
           </div>
           <section className="movie-info">
