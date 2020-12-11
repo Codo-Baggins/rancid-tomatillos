@@ -24,6 +24,6 @@ describe("Movie", () => {
 
     expect(screen.getByText("Money Plane")).toBeInTheDocument();
 
-    expect(screen.getByText(6.666666666666667)).toBeInTheDocument();
+    expect(screen.getByText(6.7)).toBeInTheDocument();
   });
 });
