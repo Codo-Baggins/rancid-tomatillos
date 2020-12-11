@@ -6,15 +6,16 @@ import {
   screen,
   waitFor,
   cleanup,
+  wait,
 } from "@testing-library/react";
-// import { MemoryRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import App from "./App.js";
 import * as apiCalls from "../callApis";
+import { MemoryRouter } from "react-router-dom";
 jest.mock("../callApis.js");
 
-describe.only("App", () => {
+describe("App", () => {
   beforeEach(() => {
     apiCalls.callApi.mockResolvedValue({
       movies: [
@@ -60,6 +61,15 @@ describe.only("App", () => {
         average_rating: 6.666666666666667,
       },
     });
+    apiCalls.callSingleApiVideo.mockResolvedValue({
+      videos: [{
+        id: 330,
+        movie_id: 694919,
+        key: "aETz_dRDEys",
+        site: "YouTube",
+        type: "Trailer"
+      }]
+    })
   });
 
   // afterAll(() => cleanup());
@@ -71,7 +81,11 @@ describe.only("App", () => {
   });
 
   it("should load a movie page when a movie is clicked on", async () => {
-    render(<App />);
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    );
 
     const singleMovie = await waitFor(() =>
       screen.getByRole("img", { name: /Money Plane/i })
@@ -79,19 +93,24 @@ describe.only("App", () => {
     fireEvent.click(singleMovie);
 
     const displayMovie = await waitFor(() =>
-      screen.getByText(6.666666666666667)
+      screen.getByText(6.7)
     );
-    await expect(displayMovie).toBeInTheDocument();
+    expect(displayMovie).toBeInTheDocument();
   });
 
   it("should load all movies from the movie page after clicking the tomatillo button", async () => {
-    render(<App />);
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    );
 
-    const singleMovie = await waitFor(() => screen.getByAltText("Money Plane"));
-    const homeButton = screen.getByRole("link", { name: /home button/i });
+    const singleMovie = await waitFor(() => screen.getByRole('link', { name: /money plane/i }));
+    const homeButton = await waitFor(() => screen.getByRole("link", { name: /home button/i }))
 
-    fireEvent.click(singleMovie);
+    //fireEvent.click(singleMovie);
     fireEvent.click(homeButton);
+    expect(singleMovie).toBeInTheDocument
 
     // render(
     //   <MemoryRouter>
@@ -112,7 +131,13 @@ describe.only("App", () => {
   });
 
   it("should be able to filter movies by typing characters in the form", async () => {
-    render(<App />);
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+
+    )
+      ;
     const moneyPlane = await waitFor(() =>
       screen.getByRole("img", { name: /money plane/i })
     );
