@@ -3,10 +3,10 @@ import "./MovieCard.scss";
 import { Link } from "react-router-dom";
 
 const MovieCard = (props) => {
-  const { imgUrl, id, title, released, handleClick } = props;
-
+  const { imgUrl, id, title, avgRating, handleClick } = props;
+  const rating = parseInt(avgRating).toFixed(1)
   return (
-    <Link to={`/movie/${id}`}>
+    <Link to={`/movie/${id}`} className="moviecard-link">
       <section
         className="movie-card"
         id={id}
@@ -14,7 +14,7 @@ const MovieCard = (props) => {
       >
         <img className="movie-img" src={imgUrl} alt={title} />
         <h4 className="movie-title">{title}</h4>
-        <p>{released}</p>
+        <p>{rating}</p>
       </section>
     </Link>
   );
