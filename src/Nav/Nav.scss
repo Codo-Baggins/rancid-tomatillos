@@ -8,31 +8,30 @@
   color: white;
   height: 15vh;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
+  justify-content: space-between;
   font-size: 40px;
 }
 
 .home-button {
-  position: absolute;
-  top: 15%;
-  right: 30%;
-  width: 80px;
-  height: 80px;
+  width: 75px;
+  height: 75px;
+  margin-right: 250px;
 }
 
-.home-button:hover {
+.home-button:hover, #title:hover {
   cursor: pointer
 }
 
-.home-button:active {
+.home-button:active, #title:active {
   transform: translate(2px, 2px)
-
 }
 
 #title {
   position: absolute;
   right: 35%;
   font-family: Nightmare-Pills;
-  font-size: 135%
+  font-size: 135%;
+  color: white;
 }
+
