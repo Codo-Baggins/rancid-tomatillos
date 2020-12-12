@@ -10,7 +10,7 @@ const MovieContainer = (props) => {
         id={movie.id}
         key={movie.id}
         title={movie.title}
-        released={movie.release_date}
+        avgRating={movie.average_rating}
         handleClick={props.handleClick}
         movieIndex={index}
       />
