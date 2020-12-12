@@ -11,13 +11,16 @@ $borderColor: linear-gradient(to right, rgb(8, 98, 184), rgb(7, 207, 214), rgb(1
   box-shadow: 5px 10px 8px #888888;
   background-color: #f4f4f9;
   border-radius: 5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent;
 }
 
 .movie-card:hover {
   cursor: pointer;
   border-width: 5px;
   border-style: solid;
-  border-image: $borderColor
+  border-image: $borderColor;
 }
 
 .moviecard-link, .moviecard-link:after {
