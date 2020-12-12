@@ -5,6 +5,7 @@ import MovieContainer from "../MovieContainer/MovieContainer";
 import Movie from "../Movie/Movie";
 import { callApi, callSingleApi, callSingleApiVideo } from "../callApis";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 class App extends Component {
   constructor() {
@@ -87,7 +88,6 @@ class App extends Component {
                 );
               } }
             />
-
             <Route
               path="/movie/:id"
               render={ ({ match }) => {
@@ -107,3 +107,10 @@ class App extends Component {
 }
 
 export default App;
+
+App.propTypes = {
+  movies: PropTypes.array,
+  movieSelected: PropTypes.object,
+  filteredMovies: PropTypes.array,
+  movieSelectedVideo: PropTypes.string
+}

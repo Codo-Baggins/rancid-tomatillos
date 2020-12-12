@@ -1,8 +1,9 @@
-import React from "react"
-import './Nav.scss'
-import tomatillo from '../assets/tomatillo.png'
-import Form from '../Form/Form'
-import { Link } from 'react-router-dom'
+import React from "react";
+import './Nav.scss';
+import tomatillo from '../assets/tomatillo.png';
+import Form from '../Form/Form';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 function Nav(props) {
   return (
@@ -23,3 +24,8 @@ function Nav(props) {
 }
 
 export default Nav;
+
+Nav.propTypes = {
+  returnHome: PropTypes.func,
+  filterMovies: PropTypes.func,
+}
