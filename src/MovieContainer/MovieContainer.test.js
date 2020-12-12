@@ -32,9 +32,6 @@ describe("Movie", () => {
               release_date: "2020-09-04",
             },
           ]}
-
-          //does this need to be here? handleClick is on the Movie component
-          //handleClick={jest.fn()}
         />
       </MemoryRouter>
     );
@@ -42,8 +39,8 @@ describe("Movie", () => {
     expect(screen.getByText("Money Plane")).toBeInTheDocument();
     expect(screen.getByText("Mulan")).toBeInTheDocument();
 
-    expect(screen.getByText("2020-09-29")).toBeInTheDocument();
-    expect(screen.getByText("2020-09-04")).toBeInTheDocument();
+    expect(screen.getByText("6.7")).toBeInTheDocument();
+    expect(screen.getByText("4.9")).toBeInTheDocument();
 
     expect(screen.getByAltText("Money Plane")).toBeInTheDocument();
     expect(screen.getByAltText("Mulan")).toBeInTheDocument();

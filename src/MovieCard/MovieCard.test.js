@@ -15,7 +15,7 @@ describe("MovieCard", () => {
           }
           id={123456}
           title="Cheech and Chong"
-          released="2020-09-29"
+          avgRating="4.222226"
           handleClick={jest.fn()}
           movieIndex={0}
         />
@@ -23,9 +23,7 @@ describe("MovieCard", () => {
     );
 
     expect(screen.getByText("Cheech and Chong")).toBeInTheDocument();
-    expect(screen.getByText("2020-09-29")).toBeInTheDocument();
-
-    //are we testing for image or if img node is on page?
+    expect(screen.getByText("4.2")).toBeInTheDocument();
     expect(screen.getByAltText("Cheech and Chong")).toBeInTheDocument();
   });
 
@@ -39,21 +37,20 @@ describe("MovieCard", () => {
           }
           id={123456}
           title="Cheech and Chong"
-          released="2020-09-29"
+          avgRating="4.222226"
           handleClick={mockHandleClick}
           movieIndex={0}
         />
       </MemoryRouter>
     );
 
-    //click on outer area too
     fireEvent.click(screen.getByText("Cheech and Chong"));
     expect(mockHandleClick).toHaveBeenCalledWith(123456);
 
     fireEvent.click(screen.getByAltText("Cheech and Chong"));
     expect(mockHandleClick).toHaveBeenCalledWith(123456);
 
-    fireEvent.click(screen.getByText("2020-09-29"));
+    fireEvent.click(screen.getByText("4.2"));
     expect(mockHandleClick).toHaveBeenCalledWith(123456);
   });
 });

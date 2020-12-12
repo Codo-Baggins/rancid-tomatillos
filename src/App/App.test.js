@@ -72,9 +72,13 @@ describe("App", () => {
     })
   });
 
-  // afterAll(() => cleanup());
+  afterAll(() => cleanup());
   it("should display movies when the App renders", async () => {
-    render(<App />);
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    );
 
     const movieOne = await waitFor(() => screen.getByText("Money Plane"));
     expect(movieOne).toBeInTheDocument();
@@ -105,29 +109,13 @@ describe("App", () => {
       </MemoryRouter>
     );
 
-    const singleMovie = await waitFor(() => screen.getByRole('link', { name: /money plane/i }));
     const homeButton = await waitFor(() => screen.getByRole("link", { name: /home button/i }))
 
-    //fireEvent.click(singleMovie);
     fireEvent.click(homeButton);
+
+    const singleMovie = await waitFor(() => screen.getByRole('link', { name: /money plane/i }));
+
     expect(singleMovie).toBeInTheDocument
-
-    // render(
-    //   <MemoryRouter>
-    //     <App />
-    //   </MemoryRouter>
-    // )
-    // screen.debug;
-    // const singleMovie = screen.getByRole("link", { name: /money plane money plane 2020\-09\-29/i });
-    // fireEvent.click(singleMovie);
-
-    // const displayMovie = (() =>
-    //   screen.getByText(6.666666666666667)
-    // );
-    // expect(displayMovie).toBeInTheDocument();
-
-    // fireEvent.click(screen.getByRole("img", { name: /home button/i }));
-    // expect(screen.getByText("Mulan")).toBeInTheDocument();
   });
 
   it("should be able to filter movies by typing characters in the form", async () => {
@@ -135,7 +123,6 @@ describe("App", () => {
       <MemoryRouter>
         <App />
       </MemoryRouter>
-
     )
       ;
     const moneyPlane = await waitFor(() =>
@@ -147,20 +134,8 @@ describe("App", () => {
     const inputField = screen.getByPlaceholderText("Search For A Movie Title");
 
     userEvent.type(inputField, "mo");
-    // fireEvent.keyDown(inputField, {key: 'A', code: 'keyA'})
+
     expect(moneyPlane).toBeInTheDocument();
     expect(mulan).not.toBeInTheDocument();
   });
 });
-
-//do we need this Nav test? Testing this functionality in Nav componenet
-// describe("Nav", () => {
-//   it("Should have a nav with a button", () => {
-//     render(<App />);
-
-//     expect(screen.getByText("Rancid Tomatillos")).toBeInTheDocument();
-//     expect(
-//       screen.getByRole("img", { name: /home button/i })
-//     ).toBeInTheDocument();
-//   });
-// });
