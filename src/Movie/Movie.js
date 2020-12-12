@@ -13,7 +13,7 @@ const Movie = (props) => {
     average_rating,
   } = props.movieSelected;
 
-  const avgRating = Number(average_rating).toFixed(1)
+  const avgRating = parseInt(average_rating).toFixed(1)
   const thumbRating = avgRating >= 5.0 ?
     <img className="thumb" src={thumbsUp} alt="thumb up" />
     : <img className="thumb" src={thumbsDown} alt="thumb down" />
