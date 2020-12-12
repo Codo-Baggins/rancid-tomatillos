@@ -64,6 +64,12 @@ class App extends Component {
   };
 
   render() {
+    const searchResults = !this.state.filteredMovies.length ?
+      <h1>No movie by that name! <br />Search for another title</h1> :
+      <MovieContainer
+        movies={ this.state.filteredMovies }
+        handleClick={ this.handleClick }
+      />
     return (
       <Router>
         <div className="App">
@@ -77,10 +83,7 @@ class App extends Component {
               path="/"
               render={ () => {
                 return (
-                  <MovieContainer
-                    movies={ this.state.filteredMovies }
-                    handleClick={ this.handleClick }
-                  />
+                  searchResults
                 );
               } }
             />
