@@ -1,4 +1,10 @@
-$borderColor: linear-gradient(to right, rgb(8, 98, 184), rgb(7, 207, 214), rgb(17, 190, 75), rgba(0, 128, 0, 0.945)) 1;
+$borderColor: linear-gradient(
+    to right,
+    rgb(8, 98, 184),
+    rgb(7, 207, 214),
+    rgb(17, 190, 75),
+    rgba(0, 128, 0, 0.945)
+  ) 1;
 
 .movie-card {
   display: flex;
@@ -10,24 +16,23 @@ $borderColor: linear-gradient(to right, rgb(8, 98, 184), rgb(7, 207, 214), rgb(1
   margin: 10px;
   box-shadow: 5px 10px 8px #888888;
   background-color: #f4f4f9;
+  border: 5px solid transparent;
   border-radius: 5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent;
 }
 
 .movie-card:hover {
   cursor: pointer;
-  border-width: 5px;
-  border-style: solid;
+  border: 5px solid;
   border-image: $borderColor;
 }
 
-.moviecard-link, .moviecard-link:after {
+.moviecard-link,
+.moviecard-link:after {
   text-decoration: none;
 }
 
-h4, p {
+h4,
+p {
   color: black;
 }
 
@@ -40,5 +45,5 @@ p {
 }
 
 .movie-img {
-  max-height: 250px
+  max-height: 250px;
 }

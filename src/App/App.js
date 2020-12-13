@@ -90,7 +90,7 @@ class App extends Component {
             />
             <Route
               path="/movie/:id"
-              render={ ({ match }) => {
+              render={() => {
                 return (
                   <Movie
                     movieSelected={ this.state.movieSelected }
