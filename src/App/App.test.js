@@ -1,12 +1,10 @@
 import React from "react";
 import {
   fireEvent,
-  getByAltText,
   render,
   screen,
   waitFor,
   cleanup,
-  wait,
 } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
@@ -83,6 +81,16 @@ describe("App", () => {
     const movieOne = await waitFor(() => screen.getByText("Money Plane"));
     expect(movieOne).toBeInTheDocument();
   });
+
+  it('should load the Nav bar when the App renders', () => {
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    )
+
+    expect(screen.getByAltText('Home Button')).toBeInTheDocument();
+  })
 
   it("should load a movie page when a movie is clicked on", async () => {
     render(
