@@ -2,7 +2,7 @@ import React from "react";
 import "./Movie.scss";
 import ReactPlayer from "react-player";
 import thumbsUp from '../assets/001-thumbs-up-hand-symbol.png';
-import thumbsDown from '../assets/002-thumbs-down-silhouette.png'
+import thumbsDown from '../assets/002-thumbs-down-silhouette.png';
 import PropTypes from 'prop-types';
 
 const Movie = (props) => {
@@ -14,13 +14,13 @@ const Movie = (props) => {
     average_rating,
   } = props.movieSelected;
 
-  const avgRating = Number(average_rating).toFixed(1)
+  const avgRating = Number(average_rating).toFixed(1);
 
   const thumbRating = avgRating >= 5.0 ?
     <img className="thumb" src={ thumbsUp } alt="thumb up" />
-    : <img className="thumb" src={ thumbsDown } alt="thumb down" />
+    : <img className="thumb" src={ thumbsDown } alt="thumb down" />;
 
-  const loadRating = average_rating === undefined ? <h1>...loading</h1> : avgRating
+  const loadRating = average_rating === undefined ? <h1>...loading</h1> : avgRating;
 
   const movieTrailer = !props.movieTrailer ?
     <h1>...Loading Trailer...</h1> :
@@ -29,11 +29,11 @@ const Movie = (props) => {
       url={ props.movieTrailer }
       height='90%'
       width='90%'
-    />
+    />;
 
   const moviePoster = !poster_path ?
     <h1>...Loading Movie Poster...</h1> :
-    <img className="movie-image" src={ poster_path } alt={ title } />
+    <img className="movie-image" src={ poster_path } alt={ title } />;
 
   return (
     <section className="movie-page">

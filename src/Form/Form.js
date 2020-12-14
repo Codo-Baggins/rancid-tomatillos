@@ -17,15 +17,15 @@ class Form extends Component {
     this.props.filterMovies(value);
   }
 
-   handleSubmit = (props) => {
-     props.preventDefault()
-   }
+  handleSubmit = (props) => {
+    props.preventDefault()
+  }
 
   render() {
     return (
       <form
-      onSubmit={ this.handleSubmit }
-      className="form__group field"
+        onSubmit={ this.handleSubmit }
+        className="form__group field"
       >
         <input
           className="form__field"
