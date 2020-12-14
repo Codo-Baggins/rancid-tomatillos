@@ -123,7 +123,7 @@ describe("App", () => {
 
     const singleMovie = await waitFor(() => screen.getByRole('link', { name: /money plane/i }));
 
-    expect(singleMovie).toBeInTheDocument
+    expect(singleMovie).toBeInTheDocument();
   });
 
   it("should be able to filter movies by typing characters in the form", async () => {
