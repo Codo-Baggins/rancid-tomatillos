@@ -5,6 +5,7 @@ import MovieContainer from "../MovieContainer/MovieContainer";
 import Movie from "../Movie/Movie";
 import { callApi, callSingleApi, callSingleApiVideo } from "../callApis";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 class App extends Component {
   constructor() {
@@ -64,6 +65,12 @@ class App extends Component {
   };
 
   render() {
+    const searchResults = !this.state.filteredMovies.length ?
+      <h1>No movie by that name! <br />Search for another title</h1> :
+      <MovieContainer
+        movies={ this.state.filteredMovies }
+        handleClick={ this.handleClick }
+      />
     return (
       <Router>
         <div className="App">
@@ -77,17 +84,13 @@ class App extends Component {
               path="/"
               render={ () => {
                 return (
-                  <MovieContainer
-                    movies={ this.state.filteredMovies }
-                    handleClick={ this.handleClick }
-                  />
+                  searchResults
                 );
               } }
             />
-
             <Route
               path="/movie/:id"
-              render={ ({ match }) => {
+              render={() => {
                 return (
                   <Movie
                     movieSelected={ this.state.movieSelected }
@@ -104,3 +107,10 @@ class App extends Component {
 }
 
 export default App;
+
+App.propTypes = {
+  movies: PropTypes.array,
+  movieSelected: PropTypes.object,
+  filteredMovies: PropTypes.array,
+  movieSelectedVideo: PropTypes.string
+}

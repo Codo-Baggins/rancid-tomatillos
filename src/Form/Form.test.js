@@ -7,8 +7,8 @@ describe("Form", () => {
   afterEach(() => cleanup());
   it("should render correctly", () => {
     render(<Form />);
-    const inputField = screen.getByPlaceholderText("Search For A Movie Title");
 
+    const inputField = screen.getByPlaceholderText("Search For A Movie Title");
     expect(inputField).toBeInTheDocument();
   });
 });

@@ -2,6 +2,7 @@ $primary: #11998e;
 $secondary: #38ef7d;
 $white: #fff;
 $gray: #9b9b9b;
+
 .form__group {
   position: relative;
   display: flex;
@@ -11,7 +12,6 @@ $gray: #9b9b9b;
   margin-left: 50px;
   margin-bottom: 30px;
   width: 50%;
-  // align-self: flex-start;
 }
 
 .form__field {
@@ -40,12 +40,10 @@ $gray: #9b9b9b;
 .form__label {
   position: absolute;
   top: 0;
-  // width: 50%;
   display: block;
   transition: 0.2s;
   font-size: 1rem;
   color: $gray;
-
 }
 
 .form__field:hover {
@@ -56,11 +54,11 @@ $gray: #9b9b9b;
     transition: 0.2s;
     font-size: 1rem;
     color: $primary;
-    font-weight:700;    
+    font-weight: 700;
   }
-  padding-bottom: 6px;  
+  padding-bottom: 6px;
   font-weight: 700;
   border-width: 3px;
-  border-image: linear-gradient(to right, $primary,$secondary);
+  border-image: linear-gradient(to right, $primary, $secondary);
   border-image-slice: 1;
 }
