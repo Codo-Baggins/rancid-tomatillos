@@ -7,15 +7,15 @@ const MovieCard = (props) => {
   const { imgUrl, id, title, avgRating, handleClick } = props;
   const rating = Number(avgRating).toFixed(1)
   return (
-    <Link to={`/movie/${id}`} className="moviecard-link">
+    <Link to={ `/movie/${ id }` } className="moviecard-link">
       <section
         className="movie-card"
-        id={id}
-        onClick={(event) => handleClick(id)}
+        id={ id }
+        onClick={ (event) => handleClick(id) }
       >
-        <img className="movie-img" src={imgUrl} alt={title} />
-        <h4 className="movie-title">{title}</h4>
-        <p>{rating}</p>
+        <img className="movie-img" src={ imgUrl } alt={ title } />
+        <h4 className="movie-title">{ title }</h4>
+        <p>{ rating }</p>
       </section>
     </Link>
   );
