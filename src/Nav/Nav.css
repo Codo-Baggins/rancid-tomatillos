@@ -1,0 +1,45 @@
+@font-face {
+  font-family: 'Nightmare-Pills';
+  src: url("../assets/NightmarePills-BV2w.ttf") format("truetype");
+}
+
+.page-nav {
+  position: relative;
+  background-color: #0f313c;
+  color: white;
+  height: 15vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 40px;
+}
+
+.home-button {
+  width: 75px;
+  height: 75px;
+  margin-right: 250px;
+}
+
+.home-button:hover, #title:hover {
+  cursor: pointer;
+}
+
+.home-button:active, #title:active {
+  -webkit-transform: translate(2px, 2px);
+          transform: translate(2px, 2px);
+}
+
+#title {
+  position: absolute;
+  right: 35%;
+  font-family: Nightmare-Pills;
+  font-size: 135%;
+  color: white;
+}
+/*# sourceMappingURL=Nav.css.map */
