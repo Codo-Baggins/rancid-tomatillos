@@ -5,7 +5,7 @@ import MovieContainer from "../MovieContainer/MovieContainer";
 import Movie from "../Movie/Movie";
 import { callApi, callSingleApi, callSingleApiVideo } from "../callApis";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 class App extends Component {
   constructor() {
@@ -32,20 +32,24 @@ class App extends Component {
 
   getSingleApiVideo = (id) => {
     callSingleApiVideo(id)
-      .then((data) => this.setState({ movieSelectedVideo: this.filterVideoTypes(data.videos) }))
+      .then((data) =>
+        this.setState({
+          movieSelectedVideo: this.filterVideoTypes(data.videos),
+        })
+      )
       .catch((error) => this.setState({ error }));
   };
 
   filterVideoTypes = (types) => {
     const displayVideo = types.find((video) => video.type === "Trailer");
-    return `https://www.youtube.com/watch?v=${ displayVideo.key }/videos`;
+    return `https://www.youtube.com/watch?v=${displayVideo.key}/videos`;
   };
 
   returnHome = () => {
     this.setState({
       filteredMovies: this.state.movies,
       movieSelected: {},
-      movieSelectedVideo: ""
+      movieSelectedVideo: "",
     });
   };
 
@@ -65,39 +69,43 @@ class App extends Component {
   };
 
   render() {
-    const searchResults = !this.state.filteredMovies.length ?
-      <h1>No movie by that name! <br />Search for another title</h1> :
+    const searchResults = !this.state.filteredMovies.length ? (
+      <h1>
+        No movie by that name! <br />
+        Search for another title
+      </h1>
+    ) : (
       <MovieContainer
-        movies={ this.state.filteredMovies }
-        handleClick={ this.handleClick }
+        movies={this.state.filteredMovies}
+        handleClick={this.handleClick}
       />
+    );
     return (
       <Router>
         <div className="App">
           <Nav
-            returnHome={ this.returnHome }
-            filterMovies={ this.filterMoviesByTitle }
+            returnHome={this.returnHome}
+            filterMovies={this.filterMoviesByTitle}
           />
           <Switch>
             <Route
               exact
               path="/"
-              render={ () => {
-                return (
-                  searchResults
-                );
-              } }
+              render={() => {
+                return searchResults;
+              }}
             />
             <Route
               path="/movie/:id"
-              render={() => {
+              render={({ match }) => {
                 return (
                   <Movie
-                    movieSelected={ this.state.movieSelected }
-                    movieTrailer={ this.state.movieSelectedVideo }
+                    id={match.params.id}
+                    movieSelected={this.state.movieSelected}
+                    movieTrailer={this.state.movieSelectedVideo}
                   />
                 );
-              } }
+              }}
             />
           </Switch>
         </div>
@@ -112,5 +120,5 @@ App.propTypes = {
   movies: PropTypes.array,
   movieSelected: PropTypes.object,
   filteredMovies: PropTypes.array,
-  movieSelectedVideo: PropTypes.string
-}
+  movieSelectedVideo: PropTypes.string,
+};

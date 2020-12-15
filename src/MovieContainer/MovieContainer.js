@@ -1,24 +1,22 @@
-import React from 'react'
-import MovieCard from '../MovieCard/MovieCard'
-import './MovieContainer.scss'
+import React from "react";
+import MovieCard from "../MovieCard/MovieCard";
+import "./MovieContainer.scss";
 
 const MovieContainer = (props) => {
   const movieInformation = props.movies.map((movie, index) => {
     return (
       <MovieCard
-        imgUrl={ movie.poster_path }
-        id={ movie.id }
-        key={ movie.id }
-        title={ movie.title }
-        avgRating={ movie.average_rating }
-        handleClick={ props.handleClick }
-        movieIndex={ index }
+        imgUrl={movie.poster_path}
+        id={movie.id}
+        key={movie.id}
+        title={movie.title}
+        avgRating={movie.average_rating}
+        handleClick={props.handleClick}
+        movieIndex={index}
       />
-    )
-  })
-  return (
-    <main className="movie-container">{ movieInformation }</main>
-  )
-}
+    );
+  });
+  return <main className="movie-container">{movieInformation}</main>;
+};
 
-export default MovieContainer
+export default MovieContainer;

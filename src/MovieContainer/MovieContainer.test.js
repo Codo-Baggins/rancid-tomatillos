@@ -1,5 +1,5 @@
 import React from "react";
-import { screen, render, fireEvent, cleanup } from "@testing-library/react";
+import { screen, render, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import MovieContainer from "./MovieContainer.js";
 import { MemoryRouter } from "react-router-dom";
@@ -39,8 +39,8 @@ describe("Movie", () => {
     expect(screen.getByText("Money Plane")).toBeInTheDocument();
     expect(screen.getByText("Mulan")).toBeInTheDocument();
 
-    expect(screen.getByText("6.7")).toBeInTheDocument();
-    expect(screen.getByText("4.9")).toBeInTheDocument();
+    expect(screen.getByText("6.7/10")).toBeInTheDocument();
+    expect(screen.getByText("4.9/10")).toBeInTheDocument();
 
     expect(screen.getByAltText("Money Plane")).toBeInTheDocument();
     expect(screen.getByAltText("Mulan")).toBeInTheDocument();

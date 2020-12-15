@@ -23,7 +23,7 @@ describe("MovieCard", () => {
     );
 
     expect(screen.getByText("Cheech and Chong")).toBeInTheDocument();
-    expect(screen.getByText("4.2")).toBeInTheDocument();
+    expect(screen.getByText("4.2/10")).toBeInTheDocument();
     expect(screen.getByAltText("Cheech and Chong")).toBeInTheDocument();
   });
 
@@ -50,7 +50,7 @@ describe("MovieCard", () => {
     fireEvent.click(screen.getByAltText("Cheech and Chong"));
     expect(mockHandleClick).toHaveBeenCalledWith(123456);
 
-    fireEvent.click(screen.getByText("4.2"));
+    fireEvent.click(screen.getByText("4.2/10"));
     expect(mockHandleClick).toHaveBeenCalledWith(123456);
   });
 });

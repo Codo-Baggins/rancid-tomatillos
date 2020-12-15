@@ -60,14 +60,16 @@ describe("App", () => {
       },
     });
     apiCalls.callSingleApiVideo.mockResolvedValue({
-      videos: [{
-        id: 330,
-        movie_id: 694919,
-        key: "aETz_dRDEys",
-        site: "YouTube",
-        type: "Trailer"
-      }]
-    })
+      videos: [
+        {
+          id: 330,
+          movie_id: 694919,
+          key: "aETz_dRDEys",
+          site: "YouTube",
+          type: "Trailer",
+        },
+      ],
+    });
   });
 
   afterAll(() => cleanup());
@@ -82,15 +84,15 @@ describe("App", () => {
     expect(movieOne).toBeInTheDocument();
   });
 
-  it('should load the Nav bar when the App renders', () => {
+  it("should load the Nav bar when the App renders", () => {
     render(
       <MemoryRouter>
         <App />
       </MemoryRouter>
-    )
+    );
 
-    expect(screen.getByAltText('Home Button')).toBeInTheDocument();
-  })
+    expect(screen.getByAltText("Home Button")).toBeInTheDocument();
+  });
 
   it("should load a movie page when a movie is clicked on", async () => {
     render(
@@ -104,9 +106,7 @@ describe("App", () => {
     );
     fireEvent.click(singleMovie);
 
-    const displayMovie = await waitFor(() =>
-      screen.getByText(6.7)
-    );
+    const displayMovie = await waitFor(() => screen.getByText(6.7));
     expect(displayMovie).toBeInTheDocument();
   });
 
@@ -117,11 +117,15 @@ describe("App", () => {
       </MemoryRouter>
     );
 
-    const homeButton = await waitFor(() => screen.getByRole("link", { name: /home button/i }))
+    const homeButton = await waitFor(() =>
+      screen.getByRole("link", { name: /home button/i })
+    );
 
     fireEvent.click(homeButton);
 
-    const singleMovie = await waitFor(() => screen.getByRole('link', { name: /money plane/i }));
+    const singleMovie = await waitFor(() =>
+      screen.getByRole("link", { name: /money plane/i })
+    );
 
     expect(singleMovie).toBeInTheDocument();
   });
@@ -131,8 +135,7 @@ describe("App", () => {
       <MemoryRouter>
         <App />
       </MemoryRouter>
-    )
-      ;
+    );
     const moneyPlane = await waitFor(() =>
       screen.getByRole("img", { name: /money plane/i })
     );
@@ -145,5 +148,24 @@ describe("App", () => {
 
     expect(moneyPlane).toBeInTheDocument();
     expect(mulan).not.toBeInTheDocument();
+  });
+
+  it("should return a message if no movie title is found", async () => {
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    );
+
+    const inputField = await waitFor(() => {
+      return screen.getByPlaceholderText("Search For A Movie Title");
+    });
+
+    expect(inputField).toBeInTheDocument();
+    userEvent.type(inputField, "Alien");
+    const noMovieFoundText = screen.getByText(
+      "No movie by that name! Search for another title"
+    );
+    expect(noMovieFoundText).toBeInTheDocument();
   });
 });

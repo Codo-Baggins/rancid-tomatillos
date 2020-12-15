@@ -1,74 +1,45 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
+# Rancid Tomatillos
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Contributors: 
+  - Mike Flynn
+  - Joe Lopez
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+- Rancid Tomatillos is an application that provides users with information about a wide variety of movies.  Rancid Tomatillos gives users recommendations on whether or n
 
-### `npm start`
+## Getting Started 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Fork the repo by clicking the "Fork" button in the top right corner of the page
+2. Clone down your forked repo to your local machine by using the command `git clone [replace this with the SSH key for your repo]` in your terminal
+3. `cd` into the cloned down directory on your local machine 
+4. Run `npm start` in the terminal 
+5. Navigate to the localhost url that is provided after running the last command
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## How to Navigate
 
-### `npm test`
+1. Upon arriving on the homepage, a user will see a homebar at the top, with a search form and a list of movies below it.  
+    
+2. Lets start by searching for a movie.  Search for a movie by typing the name of a desired movie into the search form at the top of the page. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. Can't find what you are looking for?  Try typing in a different movie name and see what comes up!
 
-### `npm run build`
+![Typing in movie names](./assets/homepage-navigation.gif)<br />
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Found a movie that interests you?  Click on the movie to see more details about that movie.   
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+5. Clicking on a movie will immediately bring you to a more detailed overview of that movie.  This overview includes a short synopsis, rating, trailer, and even some cover art for the selected movie.  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Scrolling on movie page](./assets/movie-page-navigation.gif)<br />
 
-### `npm run eject`
+6. Want to know about more movies?  Return to the homepage by clicking the Rancid Tomatillos title or the tomatillo image in the homebar at the top of the page. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![Returning to the home page](./assets/return-home.gif)<br />
+7. Once home, select some other movies you wish to learn about!
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Future Iterations
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# rancid-tomatillos
->>>>>>> 040154e54e8803a9648afd48ef72974646cefb56
+- Use an API with a greater quanity of movies 
+- The ability for a user to create their own custom profile and favorite movies based on personal interest
+- "Top Notch Tomatillos" scroll bar for the best rated movies at any given time
+- Media queries to correctly scale the application with relation to screen size
