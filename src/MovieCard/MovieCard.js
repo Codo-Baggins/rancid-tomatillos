@@ -15,7 +15,7 @@ const MovieCard = (props) => {
       >
         <img className="movie-img" src={imgUrl} alt={title} />
         <h4 className="movie-title">{title}</h4>
-        <p>{rating}</p>
+        <p>{`${rating}/10`}</p>
       </section>
     </Link>
   );
