@@ -1,15 +1,7 @@
 import React from "react";
-import {
-  screen,
-  render,
-  fireEvent,
-  cleanup,
-  waitFor,
-} from "@testing-library/react";
+import { screen, render, cleanup, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Movie from "./Movie.js";
-import { mockComponent } from "react-dom/test-utils";
-// import { callSingleApiVideo } from "../apiCalls/apiCalls";
 import * as apiCalls from "../callApis";
 jest.mock("../callApis.js");
 

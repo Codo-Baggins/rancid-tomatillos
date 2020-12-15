@@ -5,7 +5,6 @@ import {
   screen,
   waitFor,
   cleanup,
-  getByAltText,
 } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
