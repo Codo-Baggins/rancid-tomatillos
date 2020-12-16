@@ -90,7 +90,7 @@ class App extends Component {
           <Switch>
             <Route
               exact
-              path="/"
+              path="/rancid-tomatillos/"
               render={() => {
                 return searchResults;
               }}
