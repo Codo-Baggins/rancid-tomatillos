@@ -90,6 +90,13 @@ class App extends Component {
           <Switch>
             <Route
               exact
+              path="/"
+              render={() => {
+                return searchResults;
+              }}
+            />
+            <Route
+              exact
               path="/rancid-tomatillos/"
               render={() => {
                 return searchResults;
