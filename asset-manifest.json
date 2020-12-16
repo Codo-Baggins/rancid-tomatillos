@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.03e30a13.chunk.css",
-    "main.js": "/static/js/main.1b5cd2ed.chunk.js",
-    "main.js.map": "/static/js/main.1b5cd2ed.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.c3ce32c3.js",
-    "runtime-main.js.map": "/static/js/runtime-main.c3ce32c3.js.map",
-    "static/js/2.bcc5ddbc.chunk.js": "/static/js/2.bcc5ddbc.chunk.js",
-    "static/js/2.bcc5ddbc.chunk.js.map": "/static/js/2.bcc5ddbc.chunk.js.map",
-    "static/js/3.81fba429.chunk.js": "/static/js/3.81fba429.chunk.js",
-    "static/js/3.81fba429.chunk.js.map": "/static/js/3.81fba429.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.03e30a13.chunk.css.map": "/static/css/main.03e30a13.chunk.css.map",
-    "static/js/2.bcc5ddbc.chunk.js.LICENSE.txt": "/static/js/2.bcc5ddbc.chunk.js.LICENSE.txt",
-    "static/media/Nav.scss": "/static/media/NightmarePills-BV2w.20f7958e.ttf",
-    "static/media/tomatillo.d8465e51.png": "/static/media/tomatillo.d8465e51.png"
+    "main.css": "/rancid-tomatillos/static/css/main.59908d75.chunk.css",
+    "main.js": "/rancid-tomatillos/static/js/main.3baffa0f.chunk.js",
+    "main.js.map": "/rancid-tomatillos/static/js/main.3baffa0f.chunk.js.map",
+    "runtime-main.js": "/rancid-tomatillos/static/js/runtime-main.f460145c.js",
+    "runtime-main.js.map": "/rancid-tomatillos/static/js/runtime-main.f460145c.js.map",
+    "static/js/2.bcc5ddbc.chunk.js": "/rancid-tomatillos/static/js/2.bcc5ddbc.chunk.js",
+    "static/js/2.bcc5ddbc.chunk.js.map": "/rancid-tomatillos/static/js/2.bcc5ddbc.chunk.js.map",
+    "static/js/3.81fba429.chunk.js": "/rancid-tomatillos/static/js/3.81fba429.chunk.js",
+    "static/js/3.81fba429.chunk.js.map": "/rancid-tomatillos/static/js/3.81fba429.chunk.js.map",
+    "index.html": "/rancid-tomatillos/index.html",
+    "static/css/main.59908d75.chunk.css.map": "/rancid-tomatillos/static/css/main.59908d75.chunk.css.map",
+    "static/js/2.bcc5ddbc.chunk.js.LICENSE.txt": "/rancid-tomatillos/static/js/2.bcc5ddbc.chunk.js.LICENSE.txt",
+    "static/media/Nav.scss": "/rancid-tomatillos/static/media/NightmarePills-BV2w.20f7958e.ttf",
+    "static/media/tomatillo.d8465e51.png": "/rancid-tomatillos/static/media/tomatillo.d8465e51.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.c3ce32c3.js",
+    "static/js/runtime-main.f460145c.js",
     "static/js/2.bcc5ddbc.chunk.js",
-    "static/css/main.03e30a13.chunk.css",
-    "static/js/main.1b5cd2ed.chunk.js"
+    "static/css/main.59908d75.chunk.css",
+    "static/js/main.3baffa0f.chunk.js"
   ]
 }
