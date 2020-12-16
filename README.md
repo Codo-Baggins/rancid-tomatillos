@@ -24,17 +24,17 @@
 
 3. Can't find what you are looking for?  Try typing in a different movie name and see what comes up!
 
-![Typing in movie names](/assets/homepage-navigation.gif)<br />
+![Typing in movie names](./src/assets/homepage-navigation.gif)<br />
 
 4. Found a movie that interests you?  Click on the movie to see more details about that movie.   
 
 5. Clicking on a movie will immediately bring you to a more detailed overview of that movie.  This overview includes a short synopsis, rating, trailer, and even some cover art for the selected movie.  
 
-![Scrolling on movie page](/assets/movie-page-navigation.gif)<br />
+![Scrolling on movie page](./src/assets/movie-page-navigation.gif)<br />
 
 6. Want to know about more movies?  Return to the homepage by clicking the Rancid Tomatillos title or the tomatillo image in the homebar at the top of the page. 
 
-![Returning to the home page](/assets/return-home.gif)<br />
+![Returning to the home page](./src/assets/return-home.gif)<br />
 7. Once home, select some other movies you wish to learn about!
 
 # Future Iterations
