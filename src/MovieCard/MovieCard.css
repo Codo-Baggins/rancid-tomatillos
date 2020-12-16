@@ -1,0 +1,50 @@
+.movie-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 325px;
+  width: 200px;
+  max-height: 100%;
+  max-width: 100%;
+  margin: 10px;
+  -webkit-box-shadow: 5px 10px 8px #888888;
+          box-shadow: 5px 10px 8px #888888;
+  background-color: #f4f4f9;
+  border: 5px solid transparent;
+  border-radius: 5px;
+}
+
+.movie-card:hover {
+  cursor: pointer;
+  border: 5px solid;
+  -o-border-image: linear-gradient(to right, #0862b8, #07cfd6, #11be4b, rgba(0, 128, 0, 0.945)) 1;
+     border-image: -webkit-gradient(linear, left top, right top, from(#0862b8), color-stop(#07cfd6), color-stop(#11be4b), to(rgba(0, 128, 0, 0.945))) 1;
+     border-image: linear-gradient(to right, #0862b8, #07cfd6, #11be4b, rgba(0, 128, 0, 0.945)) 1;
+}
+
+.moviecard-link,
+.moviecard-link:after {
+  text-decoration: none;
+}
+
+h4,
+p {
+  color: black;
+}
+
+h4 {
+  margin: 10px 0 0 0;
+}
+
+p {
+  margin-top: 5px;
+}
+
+.movie-img {
+  max-height: 250px;
+}
+/*# sourceMappingURL=MovieCard.css.map */

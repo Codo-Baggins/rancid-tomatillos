@@ -96,6 +96,13 @@ class App extends Component {
               }}
             />
             <Route
+              exact
+              path="/rancid-tomatillos/"
+              render={() => {
+                return searchResults;
+              }}
+            />
+            <Route
               path="/movie/:id"
               render={({ match }) => {
                 return (
