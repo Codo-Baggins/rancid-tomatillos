@@ -6,7 +6,7 @@
 
 ## Overview
 
-- Rancid Tomatillos is an application that provides users with information about a wide variety of movies.  Rancid Tomatillos gives users recommendations on whether or n
+- Rancid Tomatillos is an application that provides users with information about a wide variety of movies.  Each movie has a rating associated with it, allowing users a glimpse into whether or not they may be interesting in giving it a watch.  Users can quickly navigate between movies and read synopses, view cover art, and even watch trailers if they so desire.  Well, what are you waiting for?! Go give it a try!
 
 ## Getting Started 
 
